@@ -66,43 +66,34 @@ Financial backing for Qixev is handled strictly via **external hosted checkout l
 ### Security & Privacy Boundary
 1. **Never commit secrets**: Razorpay `key_secret` or private API tokens must **never** be placed in this repository or in frontend code.
 2. **Client credential protection**: The website does not process, store, or receive credit card numbers, UPI credentials, or net banking logins.
-3. **External redirection model**: When financial support is enabled, users are redirected directly to Razorpay's official hosted payment pages.
+3. **External redirection model**: Users are redirected directly to Razorpay's official hosted payment page (`https://rzp.io/rzp/qixev`).
 
 ```text
-qixev.com/support
-        ↓ (user clicks tier)
-External Razorpay hosted checkout page
+qixev.studio/support
+        ↓ (user clicks "Support Qixev")
+External Razorpay hosted checkout page (https://rzp.io/rzp/qixev)
         ↓
 Payment Provider (Razorpay)
         ↓
 Qixev
 ```
 
-### Enabling Real Financial Support (Future Phase)
-Currently, `src/config.js` is set to:
+### Configuration (`src/config.js`)
+The external checkout URL is centralized in `src/config.js`:
 ```javascript
 const PAYMENT_CONFIG = {
-  enabled: false,
+  enabled: true,
   provider: "razorpay",
-  supportUrl: "",
+  supportUrl: "https://rzp.io/rzp/qixev",
   tiers: {
-    100: "",
-    250: "",
-    500: ""
+    100: "https://rzp.io/rzp/qixev",
+    250: "https://rzp.io/rzp/qixev",
+    500: "https://rzp.io/rzp/qixev"
   }
 };
 ```
-When `enabled: false`:
-- Support tier buttons and custom amount inputs are gracefully disabled (`aria-disabled="true"`).
-- The page renders a clear notice: *"Financial support is coming soon. Payment gateway verification is currently underway."*
-- No broken links or placeholder redirects are triggered.
 
-#### Steps to Activate Payments:
-1. Complete Razorpay merchant onboarding and business verification (KYC).
-2. Generate public payment links or hosted button pages inside the Razorpay dashboard for ₹100, ₹250, ₹500, and custom support.
-3. Insert the **public external checkout URLs** into `src/config.js`.
-4. Set `enabled: true`.
-5. Verify test transactions in staging before public deployment.
+All support routes open the verified Razorpay hosted checkout without collecting or processing payment credentials on `qixev.studio`.
 
 ---
 

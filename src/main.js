@@ -37,24 +37,33 @@ function initNavigation() {
 }
 
 function initSupportPage() {
+  const primarySupportBtn = document.getElementById('primary-support-btn');
   const tierButtons = document.querySelectorAll('.tier-button');
-  const customAmountInput = document.getElementById('custom-amount');
   const customSupportBtn = document.getElementById('custom-support-btn');
+  const supportLinks = document.querySelectorAll('[data-support-url]');
   const statusNotice = document.getElementById('payment-status-notice');
 
-  // If we are not on the support page, exit cleanly
-  if (!tierButtons.length && !customSupportBtn) {
+  // If we are not on a page with support elements, exit cleanly
+  if (!primarySupportBtn && !tierButtons.length && !customSupportBtn && !supportLinks.length) {
     return;
   }
 
-  if (!PAYMENT_CONFIG.enabled) {
+  if (!PAYMENT_CONFIG.enabled || !PAYMENT_CONFIG.supportUrl) {
     // Show clear status notice
     if (statusNotice) {
-      statusNotice.textContent = 'Financial support is coming soon. Payment gateway verification is currently underway.';
+      statusNotice.textContent = 'Financial support is temporarily unavailable.';
       statusNotice.classList.remove('hidden');
     }
 
-    // Disable buttons gracefully without broken links
+    if (primarySupportBtn) {
+      primarySupportBtn.classList.add('disabled');
+      primarySupportBtn.setAttribute('aria-disabled', 'true');
+      primarySupportBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        announceUnavailable();
+      });
+    }
+
     tierButtons.forEach(btn => {
       btn.classList.add('disabled');
       btn.setAttribute('aria-disabled', 'true');
@@ -73,55 +82,53 @@ function initSupportPage() {
       });
     }
 
-    if (customAmountInput) {
-      customAmountInput.disabled = true;
-    }
-
     return;
   }
 
-  // When PAYMENT_CONFIG.enabled is true, configure external checkout redirects
+  // When PAYMENT_CONFIG.enabled is true, configure active links to the hosted payment page
+  if (primarySupportBtn) {
+    primarySupportBtn.classList.remove('disabled');
+    primarySupportBtn.removeAttribute('aria-disabled');
+    primarySupportBtn.href = PAYMENT_CONFIG.supportUrl;
+  }
+
   tierButtons.forEach(btn => {
     btn.classList.remove('disabled');
     btn.removeAttribute('aria-disabled');
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const amount = btn.getAttribute('data-amount');
-      const targetUrl = PAYMENT_CONFIG.tiers[amount] || PAYMENT_CONFIG.supportUrl;
-      if (targetUrl) {
+    const amount = btn.getAttribute('data-amount');
+    const targetUrl = (PAYMENT_CONFIG.tiers && PAYMENT_CONFIG.tiers[amount]) || PAYMENT_CONFIG.supportUrl;
+    if (btn.tagName.toLowerCase() === 'a') {
+      btn.href = targetUrl;
+    } else {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         window.location.href = targetUrl;
-      } else {
-        announceUnavailable();
-      }
-    });
+      });
+    }
   });
 
-  if (customSupportBtn && customAmountInput) {
+  if (customSupportBtn) {
     customSupportBtn.classList.remove('disabled');
     customSupportBtn.removeAttribute('aria-disabled');
-    customAmountInput.disabled = false;
-
-    customSupportBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const val = parseInt(customAmountInput.value, 10);
-      if (isNaN(val) || val < 50) {
-        alert('Please enter a valid amount (minimum ₹50).');
-        customAmountInput.focus();
-        return;
-      }
-      if (PAYMENT_CONFIG.supportUrl) {
+    if (customSupportBtn.tagName.toLowerCase() === 'a') {
+      customSupportBtn.href = PAYMENT_CONFIG.supportUrl;
+    } else {
+      customSupportBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         window.location.href = PAYMENT_CONFIG.supportUrl;
-      } else {
-        announceUnavailable();
-      }
-    });
+      });
+    }
   }
+
+  supportLinks.forEach(link => {
+    link.href = PAYMENT_CONFIG.supportUrl;
+  });
 }
 
 function announceUnavailable() {
   const statusNotice = document.getElementById('payment-status-notice');
   if (statusNotice) {
-    statusNotice.textContent = 'Financial support is coming soon. Real payment links are currently disabled.';
+    statusNotice.textContent = 'Financial support is temporarily unavailable.';
     statusNotice.classList.remove('hidden');
     statusNotice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }

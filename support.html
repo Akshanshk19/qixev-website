@@ -53,52 +53,65 @@
         Qixev develops independent, offline-first software and open-source utilities without advertisements, venture capital, or user surveillance. Direct contributions help sustain development and keep tools free for everyone.
       </p>
 
-      <div id="payment-status-notice" class="notice notice-warning hidden" role="status" aria-live="polite">
-        Financial support is coming soon.
-      </div>
+      <div id="payment-status-notice" class="notice notice-warning hidden" role="status" aria-live="polite"></div>
 
       <section style="margin-top: 2.5rem;">
-        <h2>Financial Support</h2>
-        <p>
-          Choose a one-time contribution tier. When enabled, payments are securely processed through external payment provider checkout pages.
-        </p>
-
-        <div class="tier-grid">
-          <div class="tier-card">
-            <div class="tier-amount">₹100</div>
-            <div class="tier-desc">Fuel small fixes &amp; continuous maintenance</div>
-            <button type="button" class="btn btn-primary tier-button disabled" data-amount="100" aria-disabled="true">
-              Back ₹100
-            </button>
-          </div>
-
-          <div class="tier-card">
-            <div class="tier-amount">₹250</div>
-            <div class="tier-desc">Support test hardware &amp; SDK upgrades</div>
-            <button type="button" class="btn btn-primary tier-button disabled" data-amount="250" aria-disabled="true">
-              Back ₹250
-            </button>
-          </div>
-
-          <div class="tier-card">
-            <div class="tier-amount">₹500</div>
-            <div class="tier-desc">Sponsor core feature development &amp; releases</div>
-            <button type="button" class="btn btn-primary tier-button disabled" data-amount="500" aria-disabled="true">
-              Back ₹500
-            </button>
+        <div class="card" style="border-color: var(--border-strong);">
+          <h2>Voluntary Financial Contributions</h2>
+          <p class="card-text">
+            Supporters can make a voluntary contribution to directly fund Qixev's open-source software, physical test hardware, and engineering tools. All transactions are securely handled via Razorpay's verified hosted payment checkout, supporting UPI, credit/debit cards, and net banking.
+          </p>
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <a href="https://rzp.io/rzp/qixev" class="btn btn-primary" id="primary-support-btn">
+              Support Qixev ↗
+            </a>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">
+              Hosted on Razorpay · Secure UPI, Cards &amp; NetBanking
+            </span>
           </div>
         </div>
 
-        <div style="margin-top: 1.5rem;">
-          <h3>Custom Amount</h3>
-          <p class="card-text">Specify an amount in INR (₹) to contribute directly.</p>
-          <form class="custom-support-form" onsubmit="return false;">
-            <label for="custom-amount" class="skip-link">Custom contribution amount in INR</label>
-            <input type="number" id="custom-amount" class="custom-input" placeholder="Amount (₹)" min="50" step="10" disabled>
-            <button type="button" id="custom-support-btn" class="btn btn-secondary disabled" aria-disabled="true">
-              Contribute Custom
-            </button>
-          </form>
+        <div style="margin-top: 2.5rem;">
+          <h3>Suggested Contribution Tiers</h3>
+          <p class="card-text">
+            Choose a suggested tier or specify a flexible amount directly on the Razorpay hosted payment page.
+          </p>
+
+          <div class="tier-grid">
+            <div class="tier-card">
+              <div class="tier-amount">₹100</div>
+              <div class="tier-desc">Fuel small fixes &amp; continuous maintenance</div>
+              <a href="https://rzp.io/rzp/qixev" class="btn btn-primary tier-button" data-amount="100">
+                Support ₹100 ↗
+              </a>
+            </div>
+
+            <div class="tier-card">
+              <div class="tier-amount">₹250</div>
+              <div class="tier-desc">Support test hardware &amp; SDK upgrades</div>
+              <a href="https://rzp.io/rzp/qixev" class="btn btn-primary tier-button" data-amount="250">
+                Support ₹250 ↗
+              </a>
+            </div>
+
+            <div class="tier-card">
+              <div class="tier-amount">₹500</div>
+              <div class="tier-desc">Sponsor core feature development &amp; releases</div>
+              <a href="https://rzp.io/rzp/qixev" class="btn btn-primary tier-button" data-amount="500">
+                Support ₹500 ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Custom Contribution Amount</h3>
+          <p class="card-text">
+            Want to contribute a custom amount? You can enter any voluntary amount directly on the Razorpay hosted payment page.
+          </p>
+          <a href="https://rzp.io/rzp/qixev" class="btn btn-secondary" id="custom-support-btn">
+            Contribute Custom Amount ↗
+          </a>
         </div>
       </section>
 
