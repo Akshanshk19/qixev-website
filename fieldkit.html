@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qixev FieldKit — Offline Workshop &amp; Field Inventory</title>
+  <meta name="description" content="Qixev FieldKit is an offline-first Android application for repair shops, field technicians, and workshops. Zero network permissions, GPL-3.0-or-later.">
+  <link rel="canonical" href="https://qixev.com/fieldkit">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Qixev FieldKit — Offline Workshop &amp; Field Inventory">
+  <meta property="og:description" content="Offline-first Android application for work units and inventory tracking. Zero network permissions, 100% local SQLite storage.">
+  <meta property="og:url" content="https://qixev.com/fieldkit">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand" aria-label="Qixev Home">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#151821"/>
+          <path d="M16 6L24 20H8L16 6Z" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="16" cy="16" r="3" fill="#60a5fa"/>
+        </svg>
+        <span>Qixev</span>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">Menu</button>
+
+      <nav id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/fieldkit" class="active" aria-current="page">FieldKit</a></li>
+          <li><a href="/support">Support</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/license">License</a></li>
+          <li><a href="https://github.com/Akshanshk19" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <span class="hero-tag">Android Application</span>
+      <h1>Qixev FieldKit</h1>
+      <p class="lead">
+        A zero-bullshit, offline-first workshop inventory and work-unit tracking system built for demanding physical workshops and field operations.
+      </p>
+
+      <div class="hero-actions" style="margin-bottom: 2.5rem;">
+        <a href="https://github.com/Akshanshk19/qixev-fieldkit" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Source on GitHub ↗</a>
+        <a href="https://github.com/Akshanshk19/qixev-fieldkit/releases" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Release History</a>
+      </div>
+
+      <section style="margin-top: 2rem;">
+        <h2>Core Architectural Guarantees</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Zero Network Surface</h3>
+            <p class="card-text">
+              The application manifest contains no <code>android.permission.INTERNET</code>. The operating system physically guarantees that no background requests or network leaks can occur.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Local SQLite Database</h3>
+            <p class="card-text">
+              All inventory items, job tickets, allocations, and customer records reside in an embedded Room database stored securely on the local device filesystem.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Discrete Inventory Allocations</h3>
+            <p class="card-text">
+              Parts allocated to a work unit record quantity, timestamp, operational location (bench/rack), and purpose. Multiple allocations of the same item are preserved as distinct, traceable events.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Atomic Stock Restitution</h3>
+            <p class="card-text">
+              Deleting an allocation record safely returns only its allocated units to stock. Cancelling a work unit executes a single transactional restitution of all allocated items back to inventory.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section style="margin-top: 3rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+        <h2>System Specifications</h2>
+        <ul style="list-style: square; margin-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+          <li><strong>Platform:</strong> Native Android (Jetpack Compose + Material 3)</li>
+          <li><strong>Runtime Requirement:</strong> Android 8.0 (API 26) through Android 16 (API 37)</li>
+          <li><strong>Application Footprint:</strong> Approximately 2 MB (R8 minified release build)</li>
+          <li><strong>License:</strong> GNU General Public License v3.0 or later (copyleft)</li>
+          <li><strong>Telemetry / Analytics:</strong> None</li>
+          <li><strong>External Accounts / Cloud Sync:</strong> None</li>
+        </ul>
+      </section>
+
+      <section style="margin-top: 3rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+        <h2>Open Source &amp; Verifiability</h2>
+        <p>
+          FieldKit is completely free and open-source software. You can clone the repository, inspect every line of Kotlin code, compile reproducible debug or unsigned release builds, and verify its offline guarantees yourself:
+        </p>
+        <pre style="background: var(--bg-card); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); overflow-x: auto; font-family: var(--font-mono); font-size: 0.9rem; color: #e2e8f0; margin: 1.5rem 0;">
+git clone https://github.com/Akshanshk19/qixev-fieldkit.git
+cd qixev-fieldkit
+./gradlew assembleRelease
+        </pre>
+        <p>
+          Release builds are intentionally decoupled from private signing keys. Contributors and open-source distributors (such as F-Droid) can compile clean release APKs without access to internal signing credentials.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div>
+        <p>&copy; 2026 Qixev. Practical software and open-source engineering.</p>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="/fieldkit">FieldKit</a></li>
+        <li><a href="/support">Support</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/license">License</a></li>
+        <li><a href="https://github.com/Akshanshk19" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

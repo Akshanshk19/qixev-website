@@ -1,0 +1,32 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE Directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node / Dependencies (if any local tooling is used)
+node_modules/
+package-lock.json
+
+# Local Environment & Secrets (defense-in-depth)
+.env
+.env.*
+*.local
+keystore.properties
+*.pem
+*.key
+*.secret
+credentials.json
+
+# Build & Temporary Artifacts
+dist/
+build/
+.cache/
+tmp/
+*.log

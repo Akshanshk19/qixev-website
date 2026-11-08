@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Qixev — Independent Engineering &amp; Open Source</title>
+  <meta name="description" content="Support Qixev development. Help fund independent, tracker-free open-source tools and engineering software.">
+  <link rel="canonical" href="https://qixev.com/support">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Support Qixev — Independent Engineering &amp; Open Source">
+  <meta property="og:description" content="Support tracker-free, offline-first open-source tools developed by Qixev.">
+  <meta property="og:url" content="https://qixev.com/support">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand" aria-label="Qixev Home">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#151821"/>
+          <path d="M16 6L24 20H8L16 6Z" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="16" cy="16" r="3" fill="#60a5fa"/>
+        </svg>
+        <span>Qixev</span>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">Menu</button>
+
+      <nav id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/fieldkit">FieldKit</a></li>
+          <li><a href="/support" class="active" aria-current="page">Support</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/license">License</a></li>
+          <li><a href="https://github.com/Akshanshk19" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <span class="hero-tag">Community &amp; Sustainability</span>
+      <h1>Support Qixev</h1>
+      <p class="lead">
+        Qixev develops independent, offline-first software and open-source utilities without advertisements, venture capital, or user surveillance. Direct contributions help sustain development and keep tools free for everyone.
+      </p>
+
+      <div id="payment-status-notice" class="notice notice-warning hidden" role="status" aria-live="polite">
+        Financial support is coming soon.
+      </div>
+
+      <section style="margin-top: 2.5rem;">
+        <h2>Financial Support</h2>
+        <p>
+          Choose a one-time contribution tier. When enabled, payments are securely processed through external payment provider checkout pages.
+        </p>
+
+        <div class="tier-grid">
+          <div class="tier-card">
+            <div class="tier-amount">₹100</div>
+            <div class="tier-desc">Fuel small fixes &amp; continuous maintenance</div>
+            <button type="button" class="btn btn-primary tier-button disabled" data-amount="100" aria-disabled="true">
+              Back ₹100
+            </button>
+          </div>
+
+          <div class="tier-card">
+            <div class="tier-amount">₹250</div>
+            <div class="tier-desc">Support test hardware &amp; SDK upgrades</div>
+            <button type="button" class="btn btn-primary tier-button disabled" data-amount="250" aria-disabled="true">
+              Back ₹250
+            </button>
+          </div>
+
+          <div class="tier-card">
+            <div class="tier-amount">₹500</div>
+            <div class="tier-desc">Sponsor core feature development &amp; releases</div>
+            <button type="button" class="btn btn-primary tier-button disabled" data-amount="500" aria-disabled="true">
+              Back ₹500
+            </button>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h3>Custom Amount</h3>
+          <p class="card-text">Specify an amount in INR (₹) to contribute directly.</p>
+          <form class="custom-support-form" onsubmit="return false;">
+            <label for="custom-amount" class="skip-link">Custom contribution amount in INR</label>
+            <input type="number" id="custom-amount" class="custom-input" placeholder="Amount (₹)" min="50" step="10" disabled>
+            <button type="button" id="custom-support-btn" class="btn btn-secondary disabled" aria-disabled="true">
+              Contribute Custom
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section style="margin-top: 3.5rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+        <h2>Non-Financial Ways to Support</h2>
+        <p>
+          Code, testing, documentation, and feedback are equally vital to the durability of open-source software.
+        </p>
+
+        <ul class="support-action-list">
+          <li class="support-action-item">
+            <span class="action-icon" aria-hidden="true">⭐</span>
+            <div>
+              <div class="action-title">Star the Repository on GitHub</div>
+              <div class="action-desc">
+                Helps increase visibility for offline-first tooling in the Android and developer ecosystem.
+                <br>
+                <a href="https://github.com/Akshanshk19/qixev-fieldkit" target="_blank" rel="noopener noreferrer">Star qixev-fieldkit ↗</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="support-action-item">
+            <span class="action-icon" aria-hidden="true">🐛</span>
+            <div>
+              <div class="action-title">Report Bugs &amp; Regressions</div>
+              <div class="action-desc">
+                Encountered an unexpected edge case or device failure? Submit an issue with reproducible logcat.
+                <br>
+                <a href="https://github.com/Akshanshk19/qixev-fieldkit/issues" target="_blank" rel="noopener noreferrer">Open an Issue on GitHub ↗</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="support-action-item">
+            <span class="action-icon" aria-hidden="true">💻</span>
+            <div>
+              <div class="action-title">Contribute Code &amp; Documentation</div>
+              <div class="action-desc">
+                Submit pull requests for test coverage, documentation clarifications, or UI enhancements.
+                <br>
+                <a href="https://github.com/Akshanshk19/qixev-fieldkit" target="_blank" rel="noopener noreferrer">Review Contributing Guidelines ↗</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="support-action-item">
+            <span class="action-icon" aria-hidden="true">🧪</span>
+            <div>
+              <div class="action-title">Test on Physical Hardware</div>
+              <div class="action-desc">
+                Run FieldKit on various Android versions (API 26 through 37) and screen sizes to ensure rock-solid stability.
+              </div>
+            </div>
+          </li>
+
+          <li class="support-action-item">
+            <span class="action-icon" aria-hidden="true">📢</span>
+            <div>
+              <div class="action-title">Share with Field &amp; Workshop Techs</div>
+              <div class="action-desc">
+                Recommend FieldKit to independent repair professionals, makers, and mechanics who value local-only data privacy.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div>
+        <p>&copy; 2026 Qixev. Practical software and open-source engineering.</p>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="/fieldkit">FieldKit</a></li>
+        <li><a href="/support">Support</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/license">License</a></li>
+        <li><a href="https://github.com/Akshanshk19" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
