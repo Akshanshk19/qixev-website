@@ -1,4 +1,4 @@
-# Qixev Website (`qixev.com`)
+# Qixev Website (`qixev.studio`)
 
 The official public website and community support portal for **Qixev**, an independent software engineering project developing practical tools and offline-first open-source technology.
 
@@ -27,7 +27,7 @@ qixev-website/
 │   ├── main.js                # Vanilla JS: navigation & support UI state handlers
 │   └── style.css              # Dark modern engineering design system
 ├── 404.html                   # Custom 404 error page
-├── CNAME                      # Custom domain mapping (qixev.com)
+├── CNAME                      # Custom domain mapping (qixev.studio)
 ├── fieldkit.html              # Qixev FieldKit product showcase
 ├── index.html                 # Qixev home page
 ├── license.html               # Open-source licensing information
@@ -110,14 +110,14 @@ The repository is configured for automated deployment via GitHub Actions (`.gith
 
 ---
 
-## Custom Domain Setup (`qixev.com`)
+## Custom Domain Setup (`qixev.studio`)
 
-The repository contains a `CNAME` file pointing to `qixev.com`.
+The repository contains a `CNAME` file pointing to `qixev.studio`.
 
 ### Required DNS Configuration:
-To map `qixev.com` to GitHub Pages, configure the following DNS records with your domain registrar:
+To map `qixev.studio` to GitHub Pages, configure the following DNS records with your domain registrar:
 
-1. **Apex Domain (`@` / `qixev.com`)**:
+1. **Apex Domain (`@` / `qixev.studio`)**:
    Create 4 `A` records pointing to GitHub Pages IP addresses:
    - `185.199.108.153`
    - `185.199.109.153`

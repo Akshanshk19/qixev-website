@@ -90,6 +90,8 @@ function initSupportPage() {
     primarySupportBtn.classList.remove('disabled');
     primarySupportBtn.removeAttribute('aria-disabled');
     primarySupportBtn.href = PAYMENT_CONFIG.supportUrl;
+    primarySupportBtn.target = '_blank';
+    primarySupportBtn.rel = 'noopener noreferrer';
   }
 
   tierButtons.forEach(btn => {
@@ -99,10 +101,12 @@ function initSupportPage() {
     const targetUrl = (PAYMENT_CONFIG.tiers && PAYMENT_CONFIG.tiers[amount]) || PAYMENT_CONFIG.supportUrl;
     if (btn.tagName.toLowerCase() === 'a') {
       btn.href = targetUrl;
+      btn.target = '_blank';
+      btn.rel = 'noopener noreferrer';
     } else {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        window.location.href = targetUrl;
+        window.open(targetUrl, '_blank', 'noopener,noreferrer');
       });
     }
   });
@@ -112,16 +116,20 @@ function initSupportPage() {
     customSupportBtn.removeAttribute('aria-disabled');
     if (customSupportBtn.tagName.toLowerCase() === 'a') {
       customSupportBtn.href = PAYMENT_CONFIG.supportUrl;
+      customSupportBtn.target = '_blank';
+      customSupportBtn.rel = 'noopener noreferrer';
     } else {
       customSupportBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        window.location.href = PAYMENT_CONFIG.supportUrl;
+        window.open(PAYMENT_CONFIG.supportUrl, '_blank', 'noopener,noreferrer');
       });
     }
   }
 
   supportLinks.forEach(link => {
     link.href = PAYMENT_CONFIG.supportUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
   });
 }
 
