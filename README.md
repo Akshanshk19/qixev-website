@@ -1,6 +1,6 @@
 # Qixev Website (`qixev.studio`)
 
-The official public website and community support portal for **Qixev**, an independent software engineering project developing practical tools and offline-first open-source technology.
+The official public website for **Qixev**, an independent software and engineering studio developing practical developer tools, native applications, and offline-first open-source technology.
 
 ---
 
@@ -23,11 +23,12 @@ qixev-website/
 ├── assets/
 │   └── favicon.svg            # Scalable SVG brand icon
 ├── src/
-│   ├── config.js              # Centralized payment & external link configuration
-│   ├── main.js                # Vanilla JS: navigation & support UI state handlers
+│   ├── config.js              # Centralized configuration & external link registry
+│   ├── main.js                # Vanilla JS: navigation & client interaction handlers
 │   └── style.css              # Dark modern engineering design system
 ├── 404.html                   # Custom 404 error page
 ├── CNAME                      # Custom domain mapping (qixev.studio)
+├── contact.html               # Business inquiries & quote requests
 ├── fieldkit.html              # Qixev FieldKit product showcase
 ├── index.html                 # Qixev home page
 ├── license.html               # Open-source licensing information
@@ -36,8 +37,9 @@ qixev-website/
 ├── README.md                  # Project overview & operations guide
 ├── robots.txt                 # Search engine directives
 ├── SECURITY.md                # Security policy & credential boundary rules
+├── services.html              # Commercial software engineering services
 ├── sitemap.xml                # Canonical XML sitemap
-└── support.html               # Community backing & financial support page
+└── support.html               # Voluntary support & technical assistance hub
 ```
 
 ---
@@ -59,19 +61,19 @@ npx serve .
 
 ---
 
-## Payment & Support Architecture
+## Support & External Payment Architecture
 
-Financial backing for Qixev is handled strictly via **external hosted checkout links**.
+The website **does not embed payment gateways** or run client-side payment SDKs. Instead, users who wish to voluntarily support development are redirected externally to Razorpay's official hosted Payment Page.
 
 ### Security & Privacy Boundary
 1. **Never commit secrets**: Razorpay `key_secret` or private API tokens must **never** be placed in this repository or in frontend code.
 2. **Client credential protection**: The website does not process, store, or receive credit card numbers, UPI credentials, or net banking logins.
-3. **External redirection model**: Users are redirected directly to Razorpay's official hosted payment page (`https://rzp.io/rzp/qixev`).
+3. **External redirection model**: Voluntary support CTAs link directly to the centralized hosted Razorpay Payment Page (`https://rzp.io/rzp/qixev`).
 
 ```text
-qixev.studio/support
-        ↓ (user clicks "Support Qixev")
-External Razorpay hosted checkout page (https://rzp.io/rzp/qixev)
+qixev.studio/support.html (or home page CTA)
+        ↓
+External Razorpay hosted Payment Page (https://rzp.io/rzp/qixev)
         ↓
 Payment Provider (Razorpay)
         ↓
@@ -84,16 +86,12 @@ The external checkout URL is centralized in `src/config.js`:
 const PAYMENT_CONFIG = {
   enabled: true,
   provider: "razorpay",
-  supportUrl: "https://rzp.io/rzp/qixev",
-  tiers: {
-    100: "https://rzp.io/rzp/qixev",
-    250: "https://rzp.io/rzp/qixev",
-    500: "https://rzp.io/rzp/qixev"
-  }
+  url: "https://rzp.io/rzp/qixev",
+  contactEmail: "qixevstudios@gmail.com"
 };
 ```
 
-All support routes open the verified Razorpay hosted checkout without collecting or processing payment credentials on `qixev.studio`.
+All support buttons with `data-support-url` open the verified Razorpay hosted Payment Page without collecting or processing credentials on `qixev.studio`.
 
 ---
 
@@ -114,26 +112,11 @@ The repository is configured for automated deployment via GitHub Actions (`.gith
 
 The repository contains a `CNAME` file pointing to `qixev.studio`.
 
-### Required DNS Configuration:
-To map `qixev.studio` to GitHub Pages, configure the following DNS records with your domain registrar:
-
+### DNS Configuration:
 1. **Apex Domain (`@` / `qixev.studio`)**:
-   Create 4 `A` records pointing to GitHub Pages IP addresses:
-   - `185.199.108.153`
-   - `185.199.109.153`
-   - `185.199.110.153`
-   - `185.199.111.153`
-
-2. **Subdomain (`www`)**:
-   Create a `CNAME` record:
-   - Name: `www`
-   - Target: `Akshanshk19.github.io.`
-
-3. **Enforce HTTPS**:
-   In GitHub repository **Settings** → **Pages**, check **Enforce HTTPS** once DNS propagation completes and the TLS certificate is issued.
-
----
-
-## Security Policy
-
-For vulnerability reporting and credential handling policies, refer to [SECURITY.md](SECURITY.md).
+   - `185.199.108.153` (A record)
+   - `185.199.109.153` (A record)
+   - `185.199.110.153` (A record)
+   - `185.199.111.153` (A record)
+2. **WWW Subdomain (`www` / `www.qixev.studio`)**:
+   - `akshanshk19.github.io.` (CNAME record)

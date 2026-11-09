@@ -9,7 +9,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Qixev FieldKit — Offline Workshop &amp; Field Inventory">
-  <meta property="og:description" content="Offline-first Android application for work units and inventory tracking. Zero network permissions, 100% local SQLite storage.">
+  <meta property="og:description" content="Offline-first Android software product for work units and inventory tracking. Zero network permissions, 100% local SQLite storage.">
   <meta property="og:url" content="https://qixev.studio/fieldkit.html">
   <meta property="og:type" content="website">
 
@@ -36,6 +36,8 @@
         <ul class="nav-links">
           <li><a href="./">Home</a></li>
           <li><a href="./fieldkit.html" class="active" aria-current="page">FieldKit</a></li>
+          <li><a href="./services.html">Services</a></li>
+          <li><a href="./contact.html">Contact</a></li>
           <li><a href="./support.html">Support</a></li>
           <li><a href="./privacy.html">Privacy</a></li>
           <li><a href="./license.html">License</a></li>
@@ -47,24 +49,31 @@
 
   <main id="main-content">
     <div class="container">
-      <span class="hero-tag">Android Application</span>
+      <span class="hero-tag">Software Product</span>
       <h1>Qixev FieldKit</h1>
       <p class="lead">
-        A zero-bullshit, offline-first workshop inventory and work-unit tracking system built for demanding physical workshops and field operations.
+        An offline-first Android application developed by Qixev for independent repair technicians, maintenance engineers, mechanics, and workshop managers. Built for demanding physical environments where network connectivity is unavailable or undesirable.
       </p>
 
       <div class="hero-actions" style="margin-bottom: 2.5rem;">
-        <a href="https://github.com/Akshanshk19/qixev-fieldkit" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Source on GitHub ↗</a>
-        <a href="https://github.com/Akshanshk19/qixev-fieldkit/releases" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Release History</a>
+        <a href="https://github.com/Akshanshk19/qixev-fieldkit/releases" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Release APK ↗</a>
+        <a href="https://github.com/Akshanshk19/qixev-fieldkit" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Source on GitHub ↗</a>
       </div>
 
       <section style="margin-top: 2rem;">
-        <h2>Core Architectural Guarantees</h2>
+        <h2>Product Overview</h2>
         <div class="grid">
+          <article class="card">
+            <h3>Target Audience</h3>
+            <p class="card-text">
+              Independent repair professionals, field mechanics, electronic technicians, and physical workshop operators who require fast, private, and dependable parts and job tracking on the floor.
+            </p>
+          </article>
+
           <article class="card">
             <h3>Zero Network Surface</h3>
             <p class="card-text">
-              The application manifest contains no <code>android.permission.INTERNET</code>. The operating system physically guarantees that no background requests or network leaks can occur.
+              The application manifest contains no <code>android.permission.INTERNET</code>. The operating system physically guarantees that no background requests, tracking, or network leaks can occur.
             </p>
           </article>
 
@@ -76,46 +85,49 @@
           </article>
 
           <article class="card">
-            <h3>Discrete Inventory Allocations</h3>
+            <h3>Discrete Allocations &amp; Restitution</h3>
             <p class="card-text">
-              Parts allocated to a work unit record quantity, timestamp, operational location (bench/rack), and purpose. Multiple allocations of the same item are preserved as distinct, traceable events.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Atomic Stock Restitution</h3>
-            <p class="card-text">
-              Deleting an allocation record safely returns only its allocated units to stock. Cancelling a work unit executes a single transactional restitution of all allocated items back to inventory.
+              Parts allocated to a work unit record quantity, timestamp, bench location, and purpose. Cancelling or editing work units transactionally returns allocated units back to active inventory.
             </p>
           </article>
         </div>
       </section>
 
       <section style="margin-top: 3rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
-        <h2>System Specifications</h2>
+        <h2>Availability &amp; Licensing</h2>
+        <p>
+          Qixev FieldKit v1.0.0 is completely free and open-source software. There are no subscriptions, in-app purchases, advertisements, or paid licenses required to use the software.
+        </p>
         <ul style="list-style: square; margin-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+          <li><strong>Current Version:</strong> v1.0.0 (Stable Release)</li>
+          <li><strong>Availability:</strong> Free download via GitHub Releases or reproducible source compilation</li>
+          <li><strong>License:</strong> GNU General Public License v3.0 or later (GPL-3.0-or-later)</li>
           <li><strong>Platform:</strong> Native Android (Jetpack Compose + Material 3)</li>
-          <li><strong>Runtime Requirement:</strong> Android 8.0 (API 26) through Android 16 (API 37)</li>
-          <li><strong>Application Footprint:</strong> Approximately 2 MB (R8 minified release build)</li>
-          <li><strong>License:</strong> GNU General Public License v3.0 or later (copyleft)</li>
-          <li><strong>Telemetry / Analytics:</strong> None</li>
-          <li><strong>External Accounts / Cloud Sync:</strong> None</li>
+          <li><strong>Supported Android Versions:</strong> Android 8.0 (API 26) through Android 16 (API 36+)</li>
+          <li><strong>Telemetry / Accounts:</strong> None (Zero data collected)</li>
         </ul>
       </section>
 
       <section style="margin-top: 3rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
-        <h2>Open Source &amp; Verifiability</h2>
+        <h2>How to Obtain FieldKit</h2>
         <p>
-          FieldKit is completely free and open-source software. You can clone the repository, inspect every line of Kotlin code, compile reproducible debug or unsigned release builds, and verify its offline guarantees yourself:
+          Users can obtain FieldKit directly through our official open-source distribution channels:
         </p>
-        <pre style="background: var(--bg-card); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); overflow-x: auto; font-family: var(--font-mono); font-size: 0.9rem; color: #e2e8f0; margin: 1.5rem 0;">
-git clone https://github.com/Akshanshk19/qixev-fieldkit.git
-cd qixev-fieldkit
-./gradlew assembleRelease
-        </pre>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="https://github.com/Akshanshk19/qixev-fieldkit/releases" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Signed APK on GitHub Releases ↗</a>
+          <a href="https://github.com/Akshanshk19/qixev-fieldkit" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Clone &amp; Build from Source ↗</a>
+        </div>
+      </section>
+
+      <section style="margin-top: 3rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+        <h2>Custom Development &amp; Tailored Integrations</h2>
         <p>
-          Release builds are intentionally decoupled from private signing keys. Contributors and open-source distributors (such as F-Droid) can compile clean release APKs without access to internal signing credentials.
+          While the FieldKit reference application is free and open-source, Qixev provides custom development services for organizations requiring specialized inventory data models, dedicated hardware interfaces (barcode scanners, external sensors), or customized workflow tooling.
         </p>
+        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="./services.html" class="btn btn-primary">View Development Services</a>
+          <a href="./contact.html" class="btn btn-secondary">Contact Qixev</a>
+        </div>
       </section>
     </div>
   </main>
@@ -127,6 +139,8 @@ cd qixev-fieldkit
       </div>
       <ul class="footer-nav">
         <li><a href="./fieldkit.html">FieldKit</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./contact.html">Contact</a></li>
         <li><a href="./support.html">Support</a></li>
         <li><a href="./privacy.html">Privacy</a></li>
         <li><a href="./license.html">License</a></li>

@@ -1,29 +1,25 @@
 /**
- * Qixev Centralized Payment & Support Configuration
+ * Qixev Centralized Configuration
  *
  * ARCHITECTURAL MANDATES:
  * 1. Qixev's website is a static, client-side project and MUST NOT process cards, UPI credentials, or banking details.
  * 2. Never place Razorpay API secrets, private keys, or merchant tokens in this file or any frontend script.
- * 3. All financial support transactions MUST route to external, official Razorpay-hosted payment pages or payment links.
- * 4. When `enabled: false`, UI displays clear unavailable status and prevents broken navigation or empty redirects.
+ * 3. Voluntary support is handled strictly by linking users externally to the hosted Razorpay Payment Page.
+ * 4. Commercial client invoices are handled separately through direct client communication.
  */
 
 const PAYMENT_CONFIG = {
-  // Master toggle for external hosted financial support
+  // Enabled toggle for external hosted Razorpay support page
   enabled: true,
 
-  // Selected payment provider for hosted checkout
+  // Selected payment provider
   provider: "razorpay",
 
-  // Default general support hosted page URL (configured in Razorpay merchant dashboard)
-  supportUrl: "https://rzp.io/rzp/qixev",
+  // Centralized hosted Razorpay Payment Page URL for voluntary support
+  url: "https://rzp.io/rzp/qixev",
 
-  // Pre-configured tier URLs (hosted Razorpay payment links / pages)
-  tiers: {
-    100: "https://rzp.io/rzp/qixev",
-    250: "https://rzp.io/rzp/qixev",
-    500: "https://rzp.io/rzp/qixev"
-  },
+  // Official Qixev business contact email
+  contactEmail: "qixevstudios@gmail.com",
 
   // Public GitHub repository and issue tracking URLs
   externalLinks: {
