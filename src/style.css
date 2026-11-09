@@ -323,86 +323,14 @@ main {
   margin-bottom: 1rem;
 }
 
-/* Notice & Status Banners */
-.notice {
-  padding: 1rem 1.25rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.95rem;
-  margin: 1.5rem 0;
-  line-height: 1.5;
-}
-
-.notice-warning {
-  background-color: var(--status-warning-bg);
-  border: 1px solid var(--status-warning-border);
-  color: var(--status-warning-text);
-}
-
-.notice-info {
-  background-color: var(--status-info-bg);
-  border: 1px solid var(--status-info-border);
-  color: var(--status-info-text);
-}
-
 .hidden {
   display: none !important;
 }
 
-/* Support Page Specifics */
-.tier-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin: 1.5rem 0;
-}
-
-.tier-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.tier-amount {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.tier-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 1.25rem;
-}
-
-.tier-button.disabled,
 .btn.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: auto;
-}
-
-.custom-support-form {
-  display: flex;
-  gap: 0.75rem;
-  max-width: 420px;
-  margin: 1rem 0;
-}
-
-.custom-input {
-  flex: 1;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  padding: 0.65rem 0.85rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.95rem;
-}
-
-.custom-input:focus {
-  border-color: var(--border-focus);
 }
 
 /* Non-Financial Support List */
@@ -524,10 +452,6 @@ code {
 
   .nav-links.active {
     display: flex;
-  }
-
-  .custom-support-form {
-    flex-direction: column;
   }
 
   .footer-container {

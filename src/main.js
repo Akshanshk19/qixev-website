@@ -43,8 +43,8 @@ function initActionButtons() {
     btn.href = `mailto:${PAYMENT_CONFIG.contactEmail}?subject=Qixev%20Project%20Inquiry`;
   });
 
-  // Support / payment buttons linking to the centralized hosted Razorpay Payment Page
-  const supportButtons = document.querySelectorAll('[data-support-url], [data-payment-url]');
+  // Support buttons linking to the centralized hosted Razorpay Payment Page
+  const supportButtons = document.querySelectorAll('[data-support-url]');
   supportButtons.forEach(btn => {
     if (PAYMENT_CONFIG.enabled && PAYMENT_CONFIG.url) {
       btn.href = PAYMENT_CONFIG.url;
